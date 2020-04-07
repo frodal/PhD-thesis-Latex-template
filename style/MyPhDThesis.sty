@@ -42,8 +42,8 @@ style=authoryear-comp,
 sortcites=false,			% Sort citations in the text chronologically
 maxcitenames=2,			% Number of authors printed before et al. is used
 maxbibnames=99,			% Maximum number of authors printed in bibliography
-%uniquename=true,
-%giveninits=true,
+uniquename=init,
+giveninits=true,
 maxalphanames=1,
 %labelalpha,
 %sorting=nyt,
@@ -51,7 +51,7 @@ doi=false,
 url=false,
 isbn=false,
 natbib=true,
-firstinits=true,
+%firstinits=true,
 dashed=false, 			% Re-print recurring author names (suppress the use of '--')
 backend=bibtex]{biblatex}
 \usepackage[hidelinks]{hyperref} %should be loaded after biblatex
