@@ -1,0 +1,104 @@
+\documentclass[b5paper,10pt,twoside,openright]{memoir}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load preamble from separate file %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{./style/MyPhDThesis}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin PhD Thesis here %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%
+%%%  Title page  %%%
+%%%%%%%%%%%%%%%%%%%%
+\input{./tex/title}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preface, abstract, and acknowledgement %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\pagenumbering{roman}
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+\input{./tex/preface}
+\addcontentsline{toc}{chapter}{Preface}
+\cleardoublepage
+%%%%%%%%%%%%
+% Abstract %
+%%%%%%%%%%%%
+\input{./tex/abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%
+% Acknowledgements %
+%%%%%%%%%%%%%%%%%%%%
+\input{./tex/acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%
+% Table of contents %
+%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents*
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Main document %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+%%%%%%%%%%%%%%%%%%%
+%%%% Synopsis %%%%%
+%%%%%%%%%%%%%%%%%%%
+\begingroup % Remove new page after new chapter after Synopsis
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt} % Sets spacing to zero between Synopsis and Introduction
+\chapter*{{\Huge Synopsis}}
+\label{Ch:synopsis}
+\addcontentsline{toc}{part}{Synopsis}
+%%%%%%%%%%%%%
+%% Content %%
+%%%%%%%%%%%%%
+\titlespacing*{\chapter}{0pt}{0pt}{25pt}
+\input{./tex/Introduction}
+\endgroup
+\input{./tex/Objectives}
+\input{./tex/Method}
+\input{./tex/Summary}
+\input{./tex/ConclusionFurtherWork}
+\cleardoublepage
+%%%%%%%%%%%%%%%%
+%% References %%
+%%%%%%%%%%%%%%%%
+\printbibliography[title=References, heading=bibliography]
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%
+%%%% Articles %%%%%
+%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{part}{Articles}
+\input{./articles/Part1}
+\addcontentsline{toc}{section}{Influence of pre-compression on the ductility of AA6xxx aluminium alloys}
+\cleardoublepage
+\includepdf[pages=-]{./articles/Paper1.pdf}
+\cleardoublepage
+\input{./articles/Part2}
+\addcontentsline{toc}{section}{Modelling and simulation of ductile failure in textured aluminium alloys subjected to compression-tension loading}
+\cleardoublepage
+\includepdf[pages=-]{./articles/Paper2.pdf}
+\cleardoublepage
+\input{./articles/Part3}
+\addcontentsline{toc}{section}{On the effect of plastic anisotropy, strength and work hardening on the tensile ductility of aluminium alloys}
+\cleardoublepage
+\includepdf[pages=-]{./articles/Paper3.pdf}
+\cleardoublepage
+\input{./articles/Part4}
+\addcontentsline{toc}{section}{The role of quench rate on the plastic flow and fracture of three aluminium alloys with different grain structure and texture}
+\cleardoublepage
+\includepdf[pages=-]{./articles/Paper4.pdf}
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%
+%%%% Appendix %%%%%
+%%%%%%%%%%%%%%%%%%%
+\appendix
+\appendixpage
+\input{./Appendix/Appendix1}
+\cleardoublepage
+%%%%%%%%%%%%%%%%
+\end{document}

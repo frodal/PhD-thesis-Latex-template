@@ -1,0 +1,227 @@
+\ProvidesPackage{./style/MyPhDThesis}
+%% Preamble for thesis
+\usepackage{pdfpages}
+%\usepackage[hidelinks]{hyperref} %should be loaded after biblatex
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{pifont}
+\usepackage{calc}
+\usepackage{bm}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{enumitem} % For formatted enumerated lists. [1],[2], and so on.
+\usepackage{lipsum}
+\usepackage[left=1.6cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} % Mindre marger
+\usepackage{calc}
+\usepackage{xcolor}
+\PassOptionsToPackage{cmyk}{xcolor}
+%\usepackage{pst-all}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage[super]{nth} % used to write $2^{mathrm{nd}}$
+\usepackage{textcomp} % Used to make mu non-italic, e.g., $10$~\textmu{m}
+% Control the figures and subfigures
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[font=small,labelfont=bf]{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Set path to folder with figures %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{./Figures/}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Bibliography using biblatex %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{csquotes} % used by biblatex
+\usepackage[
+refsegment=chapter,
+style=authoryear-comp,
+sortcites=false,			% Sort citations in the text chronologically
+maxcitenames=2,			% Number of authors printed before et al. is used
+maxbibnames=99,			% Maximum number of authors printed in bibliography
+%uniquename=true,
+%giveninits=true,
+maxalphanames=1,
+%labelalpha,
+%sorting=nyt,
+doi=false,
+url=false,
+isbn=false,
+natbib=true,
+firstinits=true,
+dashed=false, 			% Re-print recurring author names (suppress the use of '--')
+backend=bibtex]{biblatex}
+\usepackage[hidelinks]{hyperref} %should be loaded after biblatex
+%% Remove the "In:" in the references
+\renewbibmacro{in:}{}
+%\renewcommand*{\nameyeardelim}{\addspace}
+\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{default}{last-first}
+%% Fix such that we have Author (Year) and (Author, Year) citations using
+%% \textcite{} and \parencite{}
+%\let\origparencite\parencite
+%\let\origparencites\parencites
+%\newrobustcmd*{\parencitehook}{%
+%  \AtNextCite{%
+%    \renewcommand*{\nameyeardelim}{\addcomma\addspace}%
+%    \renewcommand*{\mkbibnamelast}[1]{\MakeUppercase{##1}}}}
+%\renewrobustcmd*{\parencite}{\parencitehook\origparencite}
+%\renewrobustcmd*{\parencites}{\parencitehook\origparencites}
+
+% File with references
+\addbibresource{./style/References.bib}
+
+%%%%%%%%%%%%%%%%%%
+%%  Appendices  %%
+%%%%%%%%%%%%%%%%%%
+\usepackage{appendix}
+%%%%%%%%%%%%%%%%%%
+%%  Appendices  %%
+%%%%%%%%%%%%%%%%%%
+%\usepackage{appendix}
+%% To show "Appendix X" in toc
+%\renewcommand\cftappendixname{\appendixname~}
+%%
+%\AtBeginEnvironment{subappendices}{%
+%\chapter*{Appendix}
+%%\addcontentsline{toc}{chapter}{\hspace{13pt} Appendix}
+%\counterwithin{figure}{chapter}
+%\counterwithin{table}{chapter}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Set style for chapters %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter \hspace{20pt}}{0pt}{\huge\bfseries}
+\titlespacing*{\chapter}{0pt}{0pt}{25pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Set style for chapters %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\setlength\midchapskip{7pt}
+%\makechapterstyle{myStyle}{
+%	\renewcommand\chapnamefont{\flushright\huge}
+%	\renewcommand\chapnumfont{\Huge\bfseries}
+%	\renewcommand\chaptitlefont{\huge\bfseries}
+%    \renewcommand\printchaptertitle[1]{%
+%    \setlength\tabcolsep{0pt}% used as indentation on both sides
+%    \settowidth\@tempdimc{\chaptitlefont ##1}%
+%    \setlength\@tempdimc{\textwidth-\@tempdimc-2\tabcolsep}%
+%    \chaptitlefont
+%    \ifdim\@tempdimc > 0pt\relax% Only 1 line in title
+%    \begin{tabular*}{\textwidth}{l}
+%%        \toprule  
+%        ##1 
+%%        \bottomrule
+%    \end{tabular*}
+%    \else% > 2 lines in title
+%    \begin{tabular}{%
+%        >{\chaptitlefont\arraybackslash}p{\textwidth-2\tabcolsep}}
+%%    \toprule 
+%    \raggedright 
+%    ##1 \tabularnewline
+%%    \bottomrule
+%    \end{tabular}
+%    \fi
+%    }
+%}
+
+%%%%%%%%%%%%%%%%%%%%
+%% Header options %%
+%%%%%%%%%%%%%%%%%%%%
+%% Remove the redundant dot behind section number in header
+%\renewcommand\sectionmark[1]{\markright{\thesection\ \hspace{2pt} #1}}
+%% Set layout for the page using a page style
+%\makepagestyle{myStyle}
+%\makeoddhead{myStyle}{Chapter \textbf\thechapter}{}{\rightmark}
+%\makeevenhead{myStyle}{\rightmark}{}{Chapter \textbf\thechapter}
+%\makeevenfoot{myStyle}{\thepage}{}{}
+%\makeoddfoot{myStyle}{}{}{\thepage}
+%\makeheadrule{myStyle}{\textwidth}{0.4pt}
+%\makepsmarks{myStyle}{\nouppercaseheads}
+%\makeatother
+%% Set layout for Appendix pages
+%\makepagestyle{appdx}
+%\makeoddhead{appdx}{Appendix \textbf\thechapter}{}{\rightmark}
+%\makeevenhead{appdx}{\rightmark}{}{Appendix \textbf\thechapter}
+%\makeevenfoot{appdx}{\thepage}{}{}
+%\makeoddfoot{appdx}{}{}{\thepage}
+%\makeheadrule{appdx}{\textwidth}{0.4pt}
+%\makepsmarks{appdx}{\nouppercaseheads}
+%\makeatother
+
+%%%%%%%%%%%%%%%%%
+%% Flip margin %%
+%%%%%%%%%%%%%%%%%
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Set section name depth %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setsecnumdepth{subsubsection}
+\maxsecnumdepth{subsubsection}
+\setcounter{tocdepth}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Control line spacing, indent, etc. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.em}
+\setlength{\floatsep}{10pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{10pt plus 1pt minus 1pt}
+\setlength{\intextsep}{10pt plus 1pt minus 1pt}
+\titlespacing\section{0pt}{16pt plus 2pt minus 1pt}{4pt plus 1pt minus 1pt}
+\titlespacing\subsection{0pt}{16pt plus 2pt minus 1pt}{4pt plus 1pt minus 1pt}
+\titlespacing\subsubsection{0pt}{16pt plus 2pt minus 1pt}{4pt plus 1pt minus 1pt}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare operators %%
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Tensor notation
+%\newcommand{\ten}[1]{\mathbf{\bm{#1}}}
+%%\newcommand{\ten}[1]{\mathbfip{#1}}
+%% 1.order partial for non-voided materialsderivative
+%\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+%% 2.order parital derivative
+%\newcommand{\ppd}[3]{\dfrac{\partial^2 #1}{\partial #2\partial #3}}
+%% Total derivative
+%\newcommand{\od}[2]{\dfrac{\mathrm{d}#1}{\mathrm{d}#2}}
+%% Red textcolor
+%\newcommand{\txtred}[1]{\textcolor{red}{#1}}
+%% Minus sign in math mode
+%\newcommand{\mm}[1]{\matminus{#1}}
+%% Shortcut for \left( \right)
+%\newcommand{\lr}[1]{\left(#1\right)}
+%% hspace "x number of points"
+%\newcommand{\hx}[1]{\hspace{#1pt}}
+%% Trace
+%\newcommand{\tr}[1]{\mathrm{tr}\lr{#1}}
+%% Material time derivative
+%\let\olddot\dot
+%\renewcommand{\dot}[1]{\olddot{#1}{}}
+%% sign(x)
+%\newcommand{\sgn}[1]{\mathrm{sgn(#1)}}
+%% Text above equality
+%\newcommand{\txtoveq}[1]{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily #1}}}{=}}}
+%% Integrand 
+%\newcommand{\ig}[1]{\hspace{1pt}\mathrm{d}#1}
+
+%%%%%%%%%%%%%%%%%
+%% Modify part %%
+%%%%%%%%%%%%%%%%%
+\renewcommand{\thepart}{\arabic{part}}
+\newlength{\mylength}
+\setlength{\mylength}{\paperwidth-\oddsidemargin-1in+1pt-\textwidth}
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}[display]{\Large\vspace{2cm}}{\flushright\colorbox{black}{\makebox(150,40){\color{white}\fontsize{36pt}{100pt}\selectfont \textsc{Part} \thepart}}\hspace*{-\mylength}}{.1\textheight}{\raggedright\fontsize{20pt}{30pt}\selectfont\bfseries}
+%
+\newcommand{\parttext}[1]{\thispagestyle{empty} #1}
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup
+\addtocontents{toc}{\protect\contentsline{part}{Part \protect\numberline{\thepart}}{}{part.\thepart}}}
