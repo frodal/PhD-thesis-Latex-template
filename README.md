@@ -22,9 +22,10 @@ To compile and build the latex source into a PDF-document
 
 1. Download and install [MiKTeX](https://miktex.org/)
 2. Download and install [Texmaker](https://www.xm1math.net/texmaker/) (Alternatively [TeXstudio](https://www.texstudio.org/) can be used)
-3. Press `F1` to build your PDF
-4. Press `F11` to update BibTex
-5. Press `F1` to build your updated PDF
+3. Open `thesis.tex` in Texmaker
+4. Press `F1` to build your PDF
+5. Press `F11` to update BibTex
+6. Press `F1` twice to build your updated PDF
 
 ## Contributing
 
