@@ -32,6 +32,61 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{./Figures/}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Title page and author details %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{authoraftertitle}
+\newcommand*{\faculty}[1]{\gdef\@faculty{#1}%
+}
+\newcommand*{\@faculty}{Engineering}
+\newcommand*{\department}[1]{\gdef\@department{#1}%
+}
+\newcommand*{\@department}{Structural Engineering}
+\newcommand*{\city}[1]{\gdef\@city{#1}%
+}
+\newcommand*{\@city}{Trondheim}
+\newcommand*{\country}[1]{\gdef\@country{#1}%
+}
+\newcommand*{\@country}{Norway}
+\renewcommand*{\@title}{Title}
+\renewcommand*{\@author}{Author}
+\renewcommand*{\@date}{\today}
+\renewcommand*{\maketitle}{%
+\begin{titlingpage}
+\pagestyle{empty}
+\-
+\\
+
+{\huge \color{gray} \@author}
+\vspace{.1\textwidth}
+
+\Huge 
+\@title
+\vspace{.3\textwidth}
+
+\begin{Spacing}{1.0}
+\large
+Thesis for the Degree of Philosophiae Doctor \\
+
+\vspace{0.5cm}
+
+Norwegian University of Science and Technology \\
+Faculty of \@faculty \\
+Department of \@department
+\end{Spacing}
+\vfill
+\includegraphics[scale=0.7]{Figures/ntnu_logo.pdf}
+
+\end{titlingpage}
+}
+\newcommand*{\prefaceInfo}{%
+\begin{flushright}
+\MyAuthor \\
+\@city, \@country \\
+\MyDate
+\end{flushright}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography using biblatex %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
