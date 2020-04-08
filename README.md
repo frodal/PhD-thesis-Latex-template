@@ -16,9 +16,9 @@ If you don't have a Github account I recommend you getting one and use version c
 
 * If you do not have a Github account and don't want to have one, press the `Clone or download` button and then `Download ZIP`
 
-### Compile and build
+### Compile and build on your own PC
 
-To compile and build the latex source into a PDF-document
+To compile and build the latex source into a PDF-document on your own PC
 
 1. Download and install [MiKTeX](https://miktex.org/)
 2. Download and install [Texmaker](https://www.xm1math.net/texmaker/) (Alternatively [TeXstudio](https://www.texstudio.org/) can be used)
@@ -26,6 +26,13 @@ To compile and build the latex source into a PDF-document
 4. Press `F1` to build your PDF
 5. Press `F11` to update BibTex
 6. Press `F1` twice to build your updated PDF
+
+### Using Overleaf
+
+1. Login to your Github account, go to this repository on Github and press the `Use this template` button to create a new repository based on this template (If you have not already created one)
+2. Go to overleaf.com and conect your Overleaf account to your Github account in the Overleaf account settings page
+3. Create a new overleaf project by pressing the `New Project` button, then `Import from Github` and select the Github repository you just created
+4. Remember to push and pull your changes to Github
 
 ## Contributing
 
