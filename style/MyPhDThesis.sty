@@ -36,6 +36,7 @@
 %%% Title page and author details %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{authoraftertitle}
+\usepackage{arial}
 \newcommand*{\faculty}[1]{\gdef\@faculty{#1}%
 }
 \newcommand*{\@faculty}{Engineering}
@@ -51,14 +52,28 @@
 \renewcommand*{\@title}{Title}
 \renewcommand*{\@author}{Author}
 \renewcommand*{\@date}{\today}
+\newcommand*{\ISBNprinted}[1]{\gdef\@ISBNprinted{#1}%
+}
+\newcommand*{\@ISBNprinted}{000-00-000-0000-0}
+\newcommand*{\ISBNelectronic}[1]{\gdef\@ISBNelectronic{#1}%
+}
+\newcommand*{\@ISBNelectronic}{000-00-000-0000-0}
+\newcommand*{\serialNumber}[1]{\gdef\@serialNumber{#1}%
+}
+\newcommand*{\@serialNumber}{\the\year :0}
+\newcommand*{\printdate}{%
+   \ifcase \month\or January\or February\or March\or April\or May\or June\or July\or
+    August\or September\or October\or November\or December\fi \space \number\year}
 \renewcommand*{\maketitle}{%
 \begin{titlingpage}
+\fontfamily{ua1}\selectfont
+\newgeometry{left=4.2cm,right=4.2cm}
 \pagestyle{empty}
 \-
 \\
 
-{\huge \color{gray} \@author}
-\vspace{.1\textwidth}
+{\LARGE \color{gray} \@author}\\
+
 
 \Huge 
 \@title
@@ -66,9 +81,9 @@
 
 \begin{Spacing}{1.0}
 \large
-Thesis for the Degree of Philosophiae Doctor \\
+Thesis for the Degree of Philosophiae Doctor
 
-\vspace{0.5cm}
+\@city , \printdate
 
 Norwegian University of Science and Technology \\
 Faculty of \@faculty \\
@@ -77,9 +92,34 @@ Department of \@department
 \vfill
 \includegraphics[scale=0.7]{Figures/ntnu_logo.pdf}
 
+\newpage
+{~}
+\vfill
+{
+\scriptsize
+\textbf{NTNU}\\
+Norwegian University of Science and Technology
+
+Thesis for the Degree of Philosophiae Doctor
+
+Faculty of \@faculty\ \\
+Department of \@department
+
+\copyright\ \@author
+
+ISBN \@ISBNprinted\ (printed ver.)\\
+ISBN \@ISBNelectronic\ (electronic ver.)\\
+ISSN 1503-8181
+
+Doctoral theses at NTNU, \@serialNumber
+
+Printed by \@author
+
+}
+\restoregeometry
 \end{titlingpage}
 }
-\newcommand*{\prefaceInfo}{%
+\newcommand*{\prefaceSignature}{%
 \begin{flushright}
 \MyAuthor \\
 \@city, \@country \\
