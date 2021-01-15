@@ -14,7 +14,7 @@ If you don't have a Github account I recommend you getting one and use version c
 
 * If you have a Github account, login and press the `Use this template` button to create a new repository based on this template
 
-* If you do not have a Github account and don't want to have one, press the `Clone or download` button and then `Download ZIP`
+* If you do not have a Github account and don't want to have one, press the `⬇ Code` button and then `Download ZIP`
 
 ### Compile and build on your own PC
 
